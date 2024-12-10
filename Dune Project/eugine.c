@@ -189,7 +189,6 @@ void cursor_move(DIRECTION dir) {
 	}
 }
 
-// 게임 루프 내 커서 선택/취소 및 상태창 업데이트
 void game_loop(void) {
 	while (1) {
 		KEY key = get_key();
@@ -197,21 +196,22 @@ void game_loop(void) {
 		if (is_arrow_key(key)) {
 			cursor_move(ktod(key));
 		}
-		else if (key == KEY_SELECT) {         // 스페이스바로 오브젝트 선택
+		else if (key == KEY_SELECT) {  // 스페이스바로 오브젝트 선택
 			cursor.isSelected = true;
 			display_status(cursor);
 		}
+		else if (key == KEY_CANCEL) {  // ESC로 선택 취소
+			cursor.isSelected = false;
+			display_cursor(cursor);
+			display_status(cursor);
+			Sleep(TICK);
+			sys_clock += TICK;
+		}
+
+		// 선택 해제 상태를 유지하지 않으려면 아래 코드 삭제 가능
 		cursor.isSelected = false;
 		display_status(cursor);
 	}
-		else if (key == KEY_CANCEL) {         // ESC로 선택 취소
-
-		// 화면 갱신
-		display_cursor(cursor);
-		display_status(cursor);
-		Sleep(TICK);
-		sys_clock += TICK;
-		}
 }
 
 /* ================= sample object movement =================== */
@@ -260,7 +260,7 @@ POSITION sample_obj_next_position(void) {
 
 void sample_obj_move(void) {
 	if (sys_clock <= obj.next_move_time) {
-		// 아직 시간이 안 됐음
+		//
 		return;
 	}
 

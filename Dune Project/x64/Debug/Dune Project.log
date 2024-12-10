@@ -1,0 +1,7 @@
+﻿  eugine.c
+  io.c
+C:\Users\심준영\source\repos\Dune Project\Dune Project\eugine.c(13,6): warning C4030: 첫째 정식 매개 변수 목록이 둘째 목록보다 깁니다.
+C:\Users\심준영\source\repos\Dune Project\Dune Project\eugine.c(13,6): warning C4028: 정식 매개 변수 1이(가) 선언과 다릅니다.
+C:\Users\심준영\source\repos\Dune Project\Dune Project\eugine.c(205,4): warning C4013: 'display_cursor'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  코드를 생성하고 있습니다...
+  Dune Project.vcxproj -> C:\Users\심준영\source\repos\Dune Project\x64\Debug\Dune Project.exe
